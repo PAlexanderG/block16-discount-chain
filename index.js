@@ -27,10 +27,19 @@ const rocky = {
   subscription: true,
   coupon: true,
 };
+// SECOND FUNCTIONS
 
-function applyDiscount(custumer) {
-  // If a customer has a subcription the receive a 25% discount after the refill total has beeb calculated
-  // prices per refill multiply by refills to get discount
-  // if custumer have subcription then multiply by 0.75
-  // multiply total by 0.75
+/**
+ * At the end of the script, you should return and log the string "Your grand total is ${finalAmount}."
+ * @param {Object} customer - details of a customer and their prescription, subscription, and coupon
+ */
+
+function getResult(custumer) {
+  // apply discount assigning a string
+  let finalAmount = applyDiscount(custumer);
+  // apply coupon creating a new string and a parameter: customer
+  finalAmount = applyCoupon(finalAmount, custumer.coupon)
+  // print total
+  // using consule.log('Your grant total is ${finalAmount}.')
+  return finalAmount
 }
