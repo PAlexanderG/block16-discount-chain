@@ -46,20 +46,26 @@ function getResult(custumer) {
   finalAmount = applyCoupon(finalAmount, custumer.coupon);
 
   // print total
-  // using consule.log('Your grant total is ${finalAmount}.') or the Funcintion Invocation
-  // return finalAmount = shortcut of console.log('Any data.')
+  // Using consule.log('Your grant total is ${finalAmount}.') or the Function Invocation
+  // Return keyword ends a function's execution and passes a value to the fuction caller
+  // Example: function nameFuction (passedValue){
+  // return passedValue + 12;
+  // }
+  // const order = nameFuncion(new value: 10);
+  // console.log(order);
+
+  // return (keyword)finalAmount = shortcut of console.log('Any data.')
   return finalAmount;
 }
 
-// until here I reviewed the coding:
-
 /**
  * If a customer has a subscription, the customer will receive a 25% discount after the refill total has been calculated.
+ * // parameters are listed inside the parentheses, with the function definition
  * @param {Object} customer
  * @returns {number} total
  */
 function applyDiscount(customer) {
-  // let total = multiply pricePerRefill by number of refills
+  // let total = parameters.any multiply by the parameter. by number of refills;
   let total = customer.pricePerRefill * customer.refills;
   // if subscription
   if (customer.subscription) {
@@ -75,7 +81,7 @@ function applyDiscount(customer) {
  * @param {boolean} hasCoupon
  */
 function applyCoupon(total, hasCoupon) {
-  // if hasCoupon
+  // if hasCoupon : boolean
   if (hasCoupon) {
     // subtract 10 from total
     total -= 10;
@@ -96,10 +102,19 @@ function printTotal(customerObject) {
   // get the total
   const total = getTotal(customerObject[name]);
   // print the name and total together
+
+  // Arrow Functions are a different way to write functions and they achieve the same goal as function keyword
+  // A shortcut of a large codebase (function addition (return number1 + number2;){
+  // return number1 + number2;
+  // }
+  //instead
+  // const addition = (num1, num2) => num1 + num2
+  // Also creates one-liner bits of code:
   console.log(`${name} => "Your grand total is ${total}"`);
 }
 
 // FINALLY FUNCTION CALLS
+// ({property})
 
 printTotal({ timmy });
 printTotal({ sarah });
