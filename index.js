@@ -39,7 +39,7 @@ const rocky = {
 // code to be executed
 // }
 
-function getResult(custumer) {
+function getTotal(custumer) {
   // apply discount assigning a string
   let finalAmount = applyDiscount(custumer);
   // apply coupon creating a new string and a parameter: customer
@@ -94,7 +94,8 @@ function applyCoupon(total, hasCoupon) {
 
 /**
  * Prints the customer name and grand total in one line
- * @param {Object} customerObject this nested object has the customer's name as the key, and the prescription info as it's value
+ * @param {Object} customerObject this nested object has the customer's name as the key, and the prescription
+ * info as it's value
  */
 function printTotal(customerObject) {
   // get the key (name) off of the parameter
