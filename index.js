@@ -4,7 +4,7 @@
 // customer retention. You make small-talk and offer your services to help them to build a survey.
 
 // Variables tables
-const Timmy = {
+const timmy = {
   prescription: "acetaminaphen",
   pricePerRefill: 25,
   refills: 3,
@@ -28,19 +28,26 @@ const rocky = {
   coupon: true,
 };
 // SECOND FUNCTIONS
+// A function is a block of code designed to perform a particular task
 
 /**
  * At the end of the script, you should return and log the string "Your grand total is ${finalAmount}."
  * @param {Object} customer - details of a customer and their prescription, subscription, and coupon
  */
 
+// Function Keyword: function nameOfFunction(parameter1, parameters2, parameterN){
+// code to be executed
+// }
+
 function getResult(custumer) {
   // apply discount assigning a string
   let finalAmount = applyDiscount(custumer);
   // apply coupon creating a new string and a parameter: customer
   finalAmount = applyCoupon(finalAmount, custumer.coupon);
+
   // print total
-  // using consule.log('Your grant total is ${finalAmount}.')
+  // using consule.log('Your grant total is ${finalAmount}.') or the Funcintion Invocation
+  // return finalAmount = shortcut of console.log('Any data.')
   return finalAmount;
 }
 
