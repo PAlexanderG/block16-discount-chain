@@ -38,8 +38,62 @@ function getResult(custumer) {
   // apply discount assigning a string
   let finalAmount = applyDiscount(custumer);
   // apply coupon creating a new string and a parameter: customer
-  finalAmount = applyCoupon(finalAmount, custumer.coupon)
+  finalAmount = applyCoupon(finalAmount, custumer.coupon);
   // print total
   // using consule.log('Your grant total is ${finalAmount}.')
-  return finalAmount
+  return finalAmount;
 }
+
+// until here I reviewed the coding:
+
+/**
+ * If a customer has a subscription, the customer will receive a 25% discount after the refill total has been calculated.
+ * @param {Object} customer
+ * @returns {number} total
+ */
+function applyDiscount(customer) {
+  // let total = multiply pricePerRefill by number of refills
+  let total = customer.pricePerRefill * customer.refills;
+  // if subscription
+  if (customer.subscription) {
+    // total = total - ( discount / 100 )
+    total -= total * 0.25;
+  }
+  return total;
+}
+
+/**
+ * If the customer has a coupon, the customer will receive a $10 discount after the subscription discount has been calculated.
+ * @param {number} total
+ * @param {boolean} hasCoupon
+ */
+function applyCoupon(total, hasCoupon) {
+  // if hasCoupon
+  if (hasCoupon) {
+    // subtract 10 from total
+    total -= 10;
+  }
+  // return total
+  return total;
+}
+
+// business logic
+
+/**
+ * Prints the customer name and grand total in one line
+ * @param {Object} customerObject this nested object has the customer's name as the key, and the prescription info as it's value
+ */
+function printTotal(customerObject) {
+  // get the key (name) off of the parameter
+  const name = Object.keys(customerObject)[0];
+  // get the total
+  const total = getTotal(customerObject[name]);
+  // print the name and total together
+  console.log(`${name} => "Your grand total is ${total}"`);
+}
+
+// FINALLY FUNCTION CALLS
+
+printTotal({ timmy });
+printTotal({ sarah });
+printTotal({ rocky });
